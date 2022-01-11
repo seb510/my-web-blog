@@ -1,65 +1,44 @@
-<!DOCTYPE html>
-<html lang="ru">
+<?php
+$website_title = "Авторизация на странице";
+require_once 'template/header.php';
 
-<head>
-    <?php 
-        $website_title = 'Авторизация на сайте';
-        require_once 'blocks/head.php';
-    ?>   
-</head>
+?>
 
-<body class="body">
-    
-    <?php require_once 'blocks/header.php' ?>
-    
-    <div class="main">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-md-8 mb-3">
+<main class="main mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mb-3">
                 <?php
-                    if($_COOKIE['login'] == "") :
+                if($_COOKIE['login'] == ''):
                 ?>
-                <h4>Форма Авторизации</h4>
+                <h3>Форма авторизации</h3>
                 <form action="" method="post">
-                        <label for="login">Логин</label>
-                        <input type="text" name="login" id="login" class="form-control">
-                        <label for="password">Пароль</label>
-                        <input type="password" name="password" id="password" class="form-control">
-                        <div class="alert alert-danger mt-2" id="error__block">
+                    <label for="login">Логин</label>
+                    <input type="text" name="login" id="login" class="login form-control mb-2">
+                    <label for="username">Пароль</label>
+                    <input type="password" name="pass" id="pass" class="pass form-control mb-2">
 
-                        </div>
-                        <button class="btn btn-success mt-3" id="auth_user" type="button">Войти</button>
+                    <div class="error-block alert alert-danger mt-2 mb-2"></div>
+                    <button type="button" id="auth_user" class="btn btn-success mt-5">Войти</button>
                 </form>
-                <?php
-                    else:
-                ?>
-                <div class='author__block'>
-                    <h2><?= $_COOKIE['login'] ?></h2>
-                    <button class="btn btn-danger" id="exit-btn">Выйти</button>
-                </div>
-                <div class='author__coment d-flex'>
-                    <div class="author__article">
-                    <h2>Мои статьи</h2>
-                    </div>
-
-                   <div class="author__comments">
-                   <h2>Мои коменты</h2>
-                   </div>
-
-                </div>
-                <?php
-                    endif;
-                ?>
-                </div>
-                <?php require_once 'blocks/aside.php' ?>
+                <?php else: ?>
+                    <h2><?php echo $_COOKIE['login']?></h2>
+                    <button type="button" id="exit-btn" class="btn btn-danger mt-5">Выйти</button>
+                <?php endif; ?>
             </div>
+            <?php require_once 'template/aside.php'; ?>
         </div>
     </div>
-   
-    <?php require_once 'blocks/footer.php' ?>
+    <div class="load-ajax">
+        <div class="bubblingG">
+            <span id="bubblingG_1">
+            </span>
+            <span id="bubblingG_2">
+            </span>
+            <span id="bubblingG_3">
+            </span>
+        </div>
+    </div>
+</main>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/function.js"></script>
-</body>
-
-</html>
+<?php require_once 'template/footer.php'; ?>

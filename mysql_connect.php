@@ -1,11 +1,8 @@
 <?php
+    $user = "root";
+    $password = "root";
+    $db = "blog";
+    $host = "127.0.0.1";
 
-    $user = 'root';
-    $password = 'root';
-    $db = 'testing';
-    $host = 'localhost';
-
-    $dsn = 'mysql:host=' . $host. ';dbname='.$db;
+    $dsn = "mysql:host=" . $host . ';dbname=' . $db;
     $pdo = new PDO($dsn, $user, $password);
-
-?>

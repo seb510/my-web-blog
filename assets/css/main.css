@@ -1,0 +1,29 @@
+.body {
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+.headers {
+    min-height: 50px;
+
+}
+
+.buttons a:not(:last-child) {
+    margin-right: 10px;
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: none;
+}
+
+.error-block {
+    display: none;
+}
+
+.footer {
+    min-height: 50px;
+    margin-top:auto;
+}
+

@@ -1,13 +1,9 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteBase /
-</IfModule>
-
 ServerSignature Off
 AddDefaultCharset UTF-8
 
-ErrorDocument 404 /error.php
-ErrorDocument 400 /error.php
-ErrorDocument 500 /error.php
+ErrorDocument 404 /404.php
+ErrorDocument 400 /404.php
 
-#RewriteRule ^reg?$ reg.php [NC, L]
+#RewriteEngine On
+
+#RewriteRule ^registration?$ query.php [NC, L]
